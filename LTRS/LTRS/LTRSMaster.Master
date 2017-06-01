@@ -1,0 +1,167 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LTRSMaster.master.cs" Inherits="LTRS.LTRSMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+
+    <link href="assets/css/mystyle.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #divhead {
+            background-color: #408C99;
+            height: 75px;
+        }
+    </style>
+    <%-- <style>
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+    li a, .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+    li.dropdown {
+        display: inline-block;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+.dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+    </style>--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+            <div id="divhead" class="row">
+                <div class="col-xs-12 col-md-1 col-sm-1 col-lg-1">
+                    <img src="assets/images/LOGO.png" width="80px" height="50px" />
+                </div>
+                <div class="col-xs-12 col-md-11 col-sm-11 col-lg-11">
+                    <h1>LANDLORD TENANT RATING SYSTEM</h1>
+                </div>
+
+                <%--<table style="width: 100%">
+                <tr>
+                    <td style="width: 5%">
+                        <img src="assets/images/LOGO.png" width="80px" height="50px" /></td>
+                    <td style="width: 40%; text-align: center"><span style="font-size: 30px; font-weight: bold; float: left">LANDLORD TENANT RATING SYSTEM</span></td>
+                    <td style="width: 55%"></td>
+                </tr>
+            </table>--%>
+            </div>
+            <ul style="margin-bottom: 0px;">
+                <li>
+                    <asp:HyperLink NavigateUrl="~/index.aspx" runat="server" ID="hl1" Text="Home"></asp:HyperLink></li>
+                <li class="dropdownmaster">
+                    <a href="javascript:void(0)" class="dropbtn">Login</a><i class="fa fa-angle-down"></i>
+                    <div class="dropdown-content">
+                        <a href="login.aspx?User=DBA">DBA</a>
+                        <a href="login.aspx">Landlord/Tenant</a>
+
+                    </div>
+                </li>
+
+                <%--<li>
+                <asp:DropDownList ID="DropDownList2" runat="server" Style="border: none; padding-top: 10px" OnSelectedIndexChanged="DropDownList2SelectedIndexChanged" AutoPostBack="true">
+                    <asp:ListItem Value="Register">Register</asp:ListItem>
+                    <asp:ListItem Value="DBA">DBA</asp:ListItem>
+                    <asp:ListItem Value="Users">Users</asp:ListItem>
+                </asp:DropDownList>
+            </li>--%>
+                <li class="dropdownmaster"><span class="caret"></span>
+                    <a href="javascript:void(0)" class="dropbtn">Register</a><i class="fa fa-angle-down"></i>
+                    <div class="dropdown-content">
+                        <a href="registration.aspx?User=DBA">DBA</a>
+                        <a href="registration.aspx">Landlord/Tenant</a>
+
+                    </div>
+                </li>
+                <li class="dropdownmaster"><span class="caret"></span>
+                    <a href="javascript:void(0)" class="dropbtn">Post/Request Property</a><i class="fa fa-angle-down"></i>
+                    <div class="dropdown-content">
+                        <a href="postproperty.aspx" class="dropbtn">Post Property</a>
+                        <a href="ViewProerty.aspx">Request Property</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="submitratings.aspx">Give Ratings</a>
+                </li>
+                <li style="float: right"><a href="contactus.aspx">Contact Us</a></li>
+                <li style="float: right"><a href="aboutus.aspx">About Us</a></li>
+
+                <li class="dropdownmaster" style="float: right"><span class="caret"></span>
+                    <a href="javascript:void(0)" class="dropbtn">Reports</a><i class="fa fa-angle-down"></i>
+                    <div class="dropdown-content">
+                        <a href="myaccount.aspx">My Account</a>
+                        <%--<a href="ViewReports.aspx?User=DBA">View Reports</a>--%>
+                        <a href="Reports.aspx?User=DBA">Update Database</a>
+                        <a href="MyProfile.aspx">My Profile</a>
+                        <a href="ViewRatingReport.aspx" id="anchorviewratings" runat="server">Ratings Report</a>
+                        <a href="ViewPropertyReport.aspx" runat="server">Property Report</a>
+                    </div>
+                </li>
+                <%--   <li style="float: right">
+                <a href="myaccount.aspx">My Account</a>
+
+            </--li>--%>
+            </ul>
+
+            <div>
+                <asp:ContentPlaceHolder ID="CPContent" runat="server">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                </asp:ContentPlaceHolder>
+            </div>
+    </form>
+    <!-- Latest compiled and minified jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script src="assets/js/JQuery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrapcombine.js"></script>
+</body>
+</html>
